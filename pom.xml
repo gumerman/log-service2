@@ -7,7 +7,7 @@
 
 	<groupId>mil.osd.opa.ptd</groupId>
 	<artifactId>log-service</artifactId>
-	<version>1.00</version>
+	<version>1.0.0</version>
  <!-- Make packaging a war if JSP files included, otherwise jar -->
 	<packaging>jar</packaging>
 
