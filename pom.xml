@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<!-- master pom file -->
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>mil.osd.opa.ptd</groupId>
+	<artifactId>log-service</artifactId>
+	<version>1.00</version>
+ <!-- Make packaging a war if JSP files included, otherwise jar -->
+	<packaging>jar</packaging>
+
+	<name>log-service</name>
+<!-- TODO Replace the description below with one that is appropriate for the project -->
+	<description>Logging Micro-Service</description>
+ <!--
+  <parent>
+    <groupId>mil.osd.opa</groupId>
+    <artifactId>masterpom</artifactId>
+    <version>3.0.0</version>
+    <relativePath/> lookup parent from repository 
+  </parent>
+ -->
+ 
+ 	<parent> 
+ 		<groupId>org.springframework.boot</groupId> 
+ 		<artifactId>spring-boot-starter-parent</artifactId> 
+ 		<version>2.1.0.RELEASE</version> 
+ 		<relativePath/> 
+ 	</parent> 
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+<!--     <dependency> -->
+<!--       <groupId>org.springframework.boot</groupId> -->
+<!--       <artifactId>spring-boot-starter-cache</artifactId> -->
+<!--      </dependency> -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-validation</artifactId>
+    </dependency>
+<!--     <dependency> -->
+<!--       <groupId>org.springframework.session</groupId> -->
+<!--       <artifactId>spring-session-core</artifactId> -->
+<!--     </dependency> -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-devtools</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.mybatis.spring.boot</groupId>
+      <artifactId>mybatis-spring-boot-starter</artifactId>
+      <version>1.3.2</version>
+    </dependency>
+    <!-- Add these three entries: jstl, spring-boot-starter-tomcat and 
+         tomcat-embed-jasper only if you have .JSP files -->
+    <!-- <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-tomcat</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-jasper</artifactId>
+      <scope>provided</scope>
+    </dependency> -->
+<!--     <dependency> -->
+<!--       <groupId>org.springframework.boot</groupId> -->
+<!--       <artifactId>spring-boot-starter-jdbc</artifactId>   It contains database base related classes -->
+<!--     </dependency> -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+<!--     <dependency> -->
+<!--       <groupId>org.hsqldb</groupId> -->
+<!--       <artifactId>hsqldb</artifactId> -->
+<!--       <scope>runtime</scope> -->
+<!--     </dependency> -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-configuration-processor</artifactId>
+      <optional>true</optional>
+    </dependency>   
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+<!--     <dependency> -->
+<!--       <groupId>org.springframework.cloud</groupId> -->
+<!--       <artifactId>spring-cloud-config-server</artifactId> -->
+<!--     </dependency> -->
+<!--     <dependency> -->
+<!--       <groupId>org.springframework.cloud</groupId> -->
+<!--       <artifactId>spring-cloud-function-web</artifactId> -->
+<!--     </dependency> -->
+<!--     <dependency> -->
+<!--       <groupId>org.springframework.cloud</groupId> -->
+<!--       <artifactId>spring-cloud-starter-config</artifactId> -->
+<!--     </dependency> -->
+<!--     <dependency> -->
+<!--       <groupId>org.springframework.cloud</groupId> -->
+<!--       <artifactId>spring-cloud-starter-task</artifactId> -->
+<!--     </dependency> -->
+  <!-- dependency for ASIS -->
+<!--    <dependency> -->
+<!--       <groupId>mil.osd.dmdc.enterprise</groupId> -->
+<!--       <artifactId>web-security</artifactId> -->
+<!--        <version>${web-security.version}</version> -->
+<!--        <type>jar</type> -->
+<!--        <scope>compile</scope>  -->
+<!--    </dependency> -->
+
+ <!-- dependency for ASIS -->
+<!--     <dependency> -->
+<!--       <groupId>mil.osd.dmdc.enterprise</groupId> -->
+<!--       <artifactId>regionproperties</artifactId> -->
+<!--       <version>${regionproperties.version}</version> -->
+<!--       <scope>compile</scope>  -->
+<!--     </dependency> -->
+
+      <dependency>
+       <groupId>org.owasp.encoder</groupId>
+       <artifactId>encoder-jsp</artifactId>
+       <version>1.2.1</version>
+    </dependency>
+    
+    <dependency>
+       <groupId>commons-lang</groupId>
+       <artifactId>commons-lang</artifactId>
+       <version>2.6</version>
+       <scope>compile</scope>
+    </dependency>
+    
+	<!--
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>20.0</version>
+    </dependency>
+	-->
+	</dependencies>
+
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-task-dependencies</artifactId>
+        <version>${spring-cloud-task.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+<!--       <dependency> -->
+<!--         <groupId>org.springframework.cloud</groupId> -->
+<!--         <artifactId>spring-cloud-dependencies</artifactId> -->
+<!--         <version>${spring-cloud.version}</version> -->
+<!--         <type>pom</type> -->
+<!--         <scope>import</scope> -->
+<!--       </dependency> -->
+    </dependencies>
+  </dependencyManagement>
+ 
+  <!-- TODO rename the project subdirectories to correspond to the module names below. -->
+<!--   <modules> -->
+<!--   </modules> -->
+  
+  <organization>
+    <name>${dmdc.division.name}</name>
+    <url>http://teamsites.ds.dhra.osd.mil/teams/${dmdc.division.name.lcase}/SitePages/Home.aspx/</url>
+  </organization>
+  <developers>
+    <!-- TODO Replace developer values with project developer information
+        add additional developer elements as needed for project -->
+   	<developer>
+      <id>developerId</id>
+      <!-- Replace with your username -->
+      <name>Richard Gumerman</name>
+      <email>richard.d.gumerman.ctr@mail.mil</email>
+      <url>http://mysite.ds.dhra.osd.mil/Person.aspx?accountname=</url>
+      <organization>${dmdc.division.name}</organization>
+      <organizationUrl>http://teamsites.ds.dhra.osd.mil/teams/${dmdc.division.name}/SitePages/Home.aspx</organizationUrl>
+      <roles>
+        <role>Developer</role>
+      </roles>
+      <timezone>-8</timezone>
+      <!-- GMT offset. -8=PST, -6=CST, -5=EST, etc. -->
+    </developer>
+  </developers>
+  <contributors>
+    <!-- TODO Add contributor elements as needed -->
+  </contributors>
+  <properties>
+    <!-- The main class to start by executing java -jar -->
+<!--     <start-class>mil.osd.dmdc.ptd.wdlptcrs.Wdlptcrs2Application</start-class> -->
+  
+    <!-- TODO Replace this value with the appId of your project -->
+    <app.id>999</app.id>
+    <!-- TODO Replace this value with the name of your project -->
+   <!-- <app.name>This name should be replaced by the developer with the long name
+              of the application</app.name>  -->
+    <app.name>Logging Micro Service</app.name>
+    <app.name.short>log-service</app.name.short>
+    <app.name.ucase>LOG-SERVICE</app.name.ucase>
+    <app.version>1.00.001</app.version>
+    <staticWar>no</staticWar>
+    <!--
+      TODO If the application uses a datasource, uncomment the <dmdc.deployment.datasources>
+      line and configure the XML files in the /data-sources directory as appropriate. If your
+      application uses the Web Data Dictionary, you should put "WEBDD" in the list. If your project
+      uses JTDA, put "JTDA" in the list. These are container level datasources.
+    -->
+       <dmdc.deployment.datasources>log-serviceDS</dmdc.deployment.datasources>
+ 
+    <!-- TODO Replace this value with the name of your division (e.g. DEERS) -->
+    <dmdc.division.name>PTD</dmdc.division.name>
+    <!-- TODO Replace this value with the lower case name of your division -->
+    <dmdc.division.name.lcase>ptd</dmdc.division.name.lcase>
+    <jdk.version>1.8</jdk.version>
+    <dmdc.maven.build.version>3</dmdc.maven.build.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <spring-cloud-task.version>2.0.0.RELEASE</spring-cloud-task.version>
+    <spring-cloud.version>Greenwich.M1</spring-cloud.version>
+    <spring-cloud-config.version>2.0.0.RELEASE</spring-cloud-config.version>
+    <spring-cloud-function.version>1.0.0.RELEASE</spring-cloud-function.version>
+
+    <junit.version>4.12</junit.version>
+    <web-security.version>6.00.05</web-security.version>
+    <regionproperties.version>2.0.01</regionproperties.version>
+    <log4j.version>1.2.17</log4j.version>
+<!--     <log4j.version>2.6.2</log4j.version> -->
+    <commons-logging.version>1.2</commons-logging.version>
+    <logmonitor.version>2.04.01</logmonitor.version>
+<!--     <mybatis.version>3.2.3</mybatis.version> -->
+<!--     <mybatis-spring.version>1.2.2</mybatis-spring.version> -->
+<!--    <servlet.version>2.5</servlet.version> -->
+<!--    <jstl.version>1.2</jstl.version> -->
+<!--     <spring.version>4.3.18.RELEASE</spring.version> -->
+<!--     <spring.security.version>4.2.1.RELEASE</spring.security.version> -->
+<!--     DON'T upgrade to this with JBoss AS6, validation jar conflict issue -->    
+<!--     <spring.version>5.0.5.RELEASE</spring.version> -->
+    <commons-lang.version>2.6</commons-lang.version>
+    <commons-beanutils.version>1.9.3</commons-beanutils.version>
+    <commons-validator.version>1.5.1</commons-validator.version>
+    <appMonitor.version>2.2.3.0</appMonitor.version>
+    <node.version>8.9.1</node.version>
+    <yarn.version>1.3.2</yarn.version>
+    <node.path>X:\Java\apps\nodejs\node-v8.9.1\node_modules\frontend-maven-plugin\</node.path>
+    <maven.test.skip>true</maven.test.skip>
+  </properties>
+
+  <reporting>
+    <plugins>
+      <plugin>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-checkstyle-plugin</artifactId>
+                            <configuration>
+            <configLocation>checkstyle.xml</configLocation>
+           <suppressionsLocation>checkstyle-suppressions.xml</suppressionsLocation>
+         </configuration>
+      </plugin>
+
+    </plugins>
+  </reporting>
+
+  <distributionManagement>
+    <site>
+      <id>build</id>
+      <name>${app.name.short}</name>
+<!--    <url>file:///dmdccm/www/sites/${app.name.short}/</url> -->
+    </site>
+  </distributionManagement>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <!-- Entry point for project -->
+          <mainClass>mil.osd.opa.ptd.log_service.LogServiceApplication</mainClass> 
+          <excludeDevtools>false</excludeDevtools>
+          <!-- Add this line only if .JSP files included -->
+          <!-- <useSystemClassLoader>false</useSystemClassLoader> -->
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

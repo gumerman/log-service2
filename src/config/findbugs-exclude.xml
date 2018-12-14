@@ -1,0 +1,5 @@
+<FindBugsFilter>
+     <Match>
+       <Bug category="PERFORMANCE,I18N" />
+     </Match>
+</FindBugsFilter>
